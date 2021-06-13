@@ -1,0 +1,50 @@
+.card-movie {
+  background: linear-gradient(rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%),
+    url('https://thepiratefilmeshd.com.br/wp-content/uploads/2021/05/baixar-filmes-thepiratefilmeshd.com_.br_-94.jpg')
+      no-repeat center / cover;
+  width: 168px;
+  height: 301px;
+  display: grid;
+  place-content: end center;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding-bottom: 10px;
+}
+
+.card-info h3 {
+  font-size: 16px;
+}
+
+.card-star {
+  color: #fbcd6e;
+}
+
+button {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a785ed;
+  color: #eee5ff;
+  width: 140px;
+  height: 26px;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(46, 46, 46, 0.45),
+      rgba(46, 46, 46, 0.45)
+    ),
+    #a785ed;
+}
