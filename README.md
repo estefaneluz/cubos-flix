@@ -1,57 +1,70 @@
-![](https://i.imgur.com/xG74tOh.png)
+# Getting Started with Create React App
 
-# Desafio | Front-end - Módulo 2
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-O objetivo deste exercício é replicar [essa página](https://desafio-2-front-cubos-academy.netlify.app), encontrada no arquivo 'Desafio 2 - Front-end.fig'.
+## Available Scripts
 
-## Funcionalidades obrigatórias
-- **Header**
-  - **Input de busca**
-    - Ao clicar na lupa ou apertar a tecla `Enter` deverá filtrar os filmes por **nome**
-- **Seção de Top Filmes**
-  - A seção de Top Filmes deve exibir os 5 primeiros filmes que retornarem [desta API](https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?language=pt-BR) (antes de integrar com a API por fetch, utilize o arquivo `data.js`)
-- **Seção de Filmes**
-  - A seção de Filmes deve exibir todos os filmes da lista que retornarem [desta API](https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?language=pt-BR) (antes de integrar com a API por fetch, utilize o arquivo `data.js`)
-- **Sacola**
-  - Adição/remoção de filmes
-  - Deverá exibir o total da soma de todos os filmes adicionados
-  - Ao clicar no botão de "sacola" dentro de um filme, esse filme deve ser adicionado à sacola
-      - Caso ele não esteja na sacola, adicione-o com quantidade 1
-      - Caso ele esteja na sacola, aumente a quantidade em 1
-## Funcionalidades não obrigatórias
-- **Conceitos**
-  - Não usar estado quando uma variável bastaria
-  - Componentização e organização de código
-- **Funcionalidades**
-  - Controlar o estado das requisições (erros e carregamento)
+In the project directory, you can run:
 
-## Retorno da API
-A API precisa de uma requisição GET padrão, sem headers e body.
+### `yarn start`
 
-Os únicos campos necessários da [API](https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?language=pt-BR) são os seguintes:
-```json
-  {
-    "title": "Mortal Kombat",
-    "poster_path": "https://image.tmdb.org/t/p/original/w8BVC3qrCWCiTHRz4Rft12dtQF0.jpg",
-    "vote_average": 9,
-    "price": 7.5
-  }
-```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Aulas úteis:
-- [CRA](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/13/05/2021/aula/2b0e6501-ea94-4d6e-bc38-6f6120906bdc/300fc4ac-3f49-461f-b0dd-bf82b5ab028e)
-- [Desestruturação e Skip](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/18/05/2021/aula/51265e70-41ae-4fa9-a210-58233faafbdb/f5a0c1b4-74ce-4743-9d8a-0ff270a25494)
-- [Operador Spread](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/18/05/2021/aula/51265e70-41ae-4fa9-a210-58233faafbdb/91643666-6c48-44cc-907c-2a2e45620a79)
-- [Transformando um projeto comum em um projeto React](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/18/05/2021/aula/51265e70-41ae-4fa9-a210-58233faafbdb/8cb5b1a5-2a9c-4b28-a7dc-4062dbf899ec)
-- [Importância do Estado](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/25/05/2021/aula/843faa8e-6df2-489f-bb71-34dc753f99b4/0c23d0ed-8f18-4453-87d9-c0e2a2519594)
-- [Eventos no React](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/25/05/2021/aula/843faa8e-6df2-489f-bb71-34dc753f99b4/8310676e-40e5-4e01-bf09-bbc3dd0c1c43)
-- [Hooks e useState](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/25/05/2021/aula/843faa8e-6df2-489f-bb71-34dc753f99b4/71ddc73f-3045-4f13-9b08-b6676442afd7)
-- [useEffect](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/01/06/2021/aula/0fcdc99b-f93c-474c-a384-2ef86d1df9e2/481bcdb7-a267-4966-9d21-1956411f5990)
-- [Componentização](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/01/06/2021/aula/0fcdc99b-f93c-474c-a384-2ef86d1df9e2/1ceb1190-b936-460a-815c-07ee154f9096)
-- [Fetch API](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/03/06/2021/aula/434c58b2-88f1-43fb-856a-71d6ef54803d/7b6e912f-dab4-434f-845c-2fbe489ee987)
-- [React - Masterizando os conhecimentos](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/08/06/2021/aula/648a5236-76bd-4a9c-88e8-28e1940a2564/bbf2370e-a5b4-4ff0-b1b9-19fede5f8ac3)
-- [React - Masterizando os conhecimentos com Exercícios](https://plataforma.cubos.academy/curso/61b2921e-a262-4f04-b943-89c4cfb15e5c/data/10/06/2021/aula/2a2dd0d8-149b-4f6a-a80d-d8ffe8ef8017/b43a9221-a518-4901-abb3-114efc80a97a)
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-**LEMBRE-SE**: é melhor feito do quê perfeito!!!
+### `yarn test`
 
-###### tags: `front-end` `módulo 2` `React` `CSS` `desafio`
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
