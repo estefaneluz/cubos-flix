@@ -1,7 +1,7 @@
 .card-movie {
-  background: linear-gradient(rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%),
+  /* background: linear-gradient(rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%),
     url('https://thepiratefilmeshd.com.br/wp-content/uploads/2021/05/baixar-filmes-thepiratefilmeshd.com_.br_-94.jpg')
-      no-repeat center / cover;
+      no-repeat center / cover; */
   width: 168px;
   height: 301px;
   display: grid;
