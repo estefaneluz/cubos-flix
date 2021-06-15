@@ -47,7 +47,9 @@ nav {
 .user-info {
   display: flex;
   align-items: center;
+  text-align: center;
   column-gap: 8px;
+  font-size: 0.8em;
 }
 
 .user-info img {
