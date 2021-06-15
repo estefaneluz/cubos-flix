@@ -15,12 +15,15 @@ h2 {
 }
 
 .container {
-  margin-left: 5vw;
+  width: inherit;
+  margin: 0 5vw;
+  display: flex;
+  align-items: flex-start;
 }
 
 .container-filmes {
   display: flex;
   flex-wrap: wrap;
-  max-width: 70%;
+  max-width: 80%;
   gap: 24px;
 }
