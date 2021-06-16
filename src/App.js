@@ -3,11 +3,26 @@ import Nav from './components/Nav'
 import Bag from './components/Bag'
 
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Movies from './data/data'
 
 function App() {
   const [filmes, setFilmes] = useState([])
+
+  useEffect(()=>{
+    popularFilmes();
+  }, [])
+  
+  async function popularFilmes(){
+    const response = await fetch('https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?language=pt-BR', 
+    {
+      method: 'GET'
+    })
+
+    const data = await response.json();
+
+    console.log(data);
+  }
   return (
     <div className="app">
       <Nav />
