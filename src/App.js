@@ -12,17 +12,32 @@ function App() {
   useEffect(()=>{
     popularFilmes();
   }, [])
-  
+
   async function popularFilmes(){
     const response = await fetch('https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?language=pt-BR', 
     {
-      method: 'GET'
+      method: 'GET',
     })
 
-    const data = await response.json();
+    const {results} = await response.json();
 
-    console.log(data);
+    const filmesFormatados = [];
+
+    for (const filme of results) {
+      filmesFormatados.push({
+        id: filme.id,
+        title: filme.title,
+        poster_path: filme.poster_path,
+        vote_average: filme.vote_average,
+        price: filme.price,
+        qtd_bag: 0
+      });
+    }
+
+    setFilmes(filmesFormatados);
+
   }
+
   return (
     <div className="app">
       <Nav />
@@ -30,7 +45,7 @@ function App() {
         <div>
           <h2>Filmes</h2>
           <div className="container-filmes">
-            <Card filmes={Movies} />
+            <Card filmes={filmes} />
           </div>
         </div>
 
