@@ -3,11 +3,11 @@ import Nav from './components/Nav'
 import Bag from './components/Bag'
 
 import './App.css'
-// import { useState } from 'react'
+import { useState } from 'react'
 import Movies from './data/data'
 
 function App() {
-  // const [filmes, setFilmes] = useState([])
+  const [filmes, setFilmes] = useState([])
   return (
     <div className="app">
       <Nav />
