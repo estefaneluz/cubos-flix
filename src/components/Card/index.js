@@ -1,5 +1,5 @@
-import './style.css'
 import '../../App.css'
+import './style.css'
 
 function Card({ filmes }) {
   return (
@@ -29,7 +29,7 @@ function Card({ filmes }) {
               {filme.vote_average}
             </div>
           </div>
-          <button>
+          <button className="btn btn-roxo">
             Sacola <span>R$ {filme.price}</span>
           </button>
         </div>

@@ -27,20 +27,14 @@
   color: #fbcd6e;
 }
 
-button {
-  all: unset;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.btn-roxo{
   background-color: #a785ed;
   color: #eee5ff;
   width: 140px;
-  height: 26px;
-  padding: 0 8px;
-  cursor: pointer;
+  padding: 8px;
 }
 
-button:hover {
+.btn-roxo:hover {
   background: linear-gradient(
       0deg,
       rgba(46, 46, 46, 0.45),

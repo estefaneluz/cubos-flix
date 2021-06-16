@@ -27,3 +27,12 @@ h2 {
   max-width: 80%;
   gap: 24px;
 }
+
+.btn {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  column-gap: 5px;
+}

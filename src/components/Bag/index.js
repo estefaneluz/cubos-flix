@@ -1,6 +1,21 @@
-import './style.css'
 import '../../App.css'
+import './style.css'
 import personIllustration from '../../assets/images/person-illustration.svg'
+
+function MovieBag(){
+    return(
+        <div className="movie-bag-container">
+            <img></img>
+            <p>Joker</p>
+            <p>R$ 2,49</p>
+            <div>
+                <button>+</button>
+                1
+                <button>-</button>
+            </div>
+        </div>
+    )
+}
 
 function Bag(){
     return(
@@ -18,6 +33,7 @@ function Bag(){
                 <h2>Sua sacola está vazia</h2>
                 <p>Adicione filmes agora</p>
                 <img src={personIllustration} alt="Ilustração de uma pessoa se enconstado em um celular com o logo da Cubos Flix" />
+                <button className="btn btn-rosa">Confirme os seus dados <span>R$ 04,98</span></button>
             </div>
         </div>
     )
