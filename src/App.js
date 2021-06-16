@@ -4,7 +4,6 @@ import Bag from './components/Bag'
 
 import './App.css'
 import { useState, useEffect } from 'react'
-import Movies from './data/data'
 
 function App() {
   const [filmes, setFilmes] = useState([])

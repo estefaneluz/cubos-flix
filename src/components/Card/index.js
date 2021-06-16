@@ -10,6 +10,7 @@ function Card({ filmes }) {
           style={{
             background: `linear-gradient(rgba(0, 0, 0, 0.3) 100%, rgba(0, 0, 0, 0.3) 100%), url(${filme.poster_path}) no-repeat center / cover`,
           }}
+          key={filme.id}
         >
           <div className="card-info">
             <h3>{filme.title}</h3>
