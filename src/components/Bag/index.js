@@ -8,7 +8,8 @@ function ItemBag(){
     return(
         <div className="item-container">
             <img src="https://image.tmdb.org/t/p/original/ljPHd7WiPVKmuXi1hgQUpZQslbC.jpg" alt="Poster do filme"/>
-            <p className="item-title">Joker</p>
+            <p className="item-title">Aqueles Que Me Desejam a Morte
+</p>
             <p>R$ 2,49</p>
             <div className="item-button">
                 <button className="item-btn add"><img src={plusIcon} alt="Icone de adição na sacola"/></button>

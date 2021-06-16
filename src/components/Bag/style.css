@@ -54,6 +54,7 @@
 
 .item-container p{
     grid-column: 2/3;
+    max-width: 90px;
 }
 
 .item-title {
