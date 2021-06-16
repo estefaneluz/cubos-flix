@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 
 function App() {
   const [filmes, setFilmes] = useState([])
+  const [sacola, setSacola] = useState([])
 
   useEffect(()=>{
     popularFilmes();
@@ -34,8 +35,26 @@ function App() {
     }
 
     setFilmes(filmesFormatados);
-
   }
+
+  async function addFilmesSacola(id){
+    
+    const localFilmes = [...filmes]
+    const localSacola = [...sacola]
+    const indexFilme = localFilmes.findIndex(filme => filme.id === id);
+    if(indexFilme===-1) return;
+    
+    const qtdSacolaFilme = localFilmes[indexFilme].qtd_bag + 1;
+
+    if(qtdSacolaFilme===1) localSacola.push(localFilmes[indexFilme])
+    if(qtdSacolaFilme>=0) {
+      localFilmes[indexFilme].qtd_bag = qtdSacolaFilme;
+    }
+
+    setFilmes([...localFilmes])
+    setSacola([...localSacola])
+  }
+
 
   return (
     <div className="app">
@@ -44,7 +63,7 @@ function App() {
         <div>
           <h2>Filmes</h2>
           <div className="container-filmes">
-            <Card filmes={filmes} />
+            <Card filmes={filmes} addFilmesSacola={addFilmesSacola}/>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 import '../../App.css'
 import './style.css'
 
-function Card({ filmes }) {
+function Card({ filmes, addFilmesSacola }) {
   return (
     <>
       {filmes.map((filme) => (
@@ -30,7 +30,7 @@ function Card({ filmes }) {
               {filme.vote_average}
             </div>
           </div>
-          <button className="btn btn-roxo">
+          <button className="btn btn-roxo" onClick={() => addFilmesSacola(filme.id)}>
             Sacola <span>R$ {filme.price}</span>
           </button>
         </div>
