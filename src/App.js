@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react'
 function App() {
   const [filmes, setFilmes] = useState([])
   const [sacola, setSacola] = useState([])
+  const [total, setTotal] = useState(0)
 
   useEffect(()=>{
     popularFilmes();
@@ -47,6 +48,8 @@ function App() {
     if(indexFilme===-1) return;
     
     const qtdSacolaFilme = localFilmes[indexFilme].qtd_bag + value;
+    let localTotal = total + (value * localFilmes[indexFilme].price);
+    if(localTotal<0) localTotal = 0;
 
     if(indexSacola===-1) localSacola.push(localFilmes[indexFilme])
     if(qtdSacolaFilme===0) localSacola.splice(indexSacola, 1)
@@ -54,6 +57,7 @@ function App() {
 
     setFilmes([...localFilmes])
     setSacola([...localSacola])
+    setTotal(localTotal)
   }
 
 
@@ -68,7 +72,7 @@ function App() {
           </div>
         </div>
 
-        <Bag filmes={sacola} addFilmesSacola={addFilmesSacola}/>
+        <Bag filmes={sacola} addFilmesSacola={addFilmesSacola} total={total}/>
       </div>
     </div>
   )

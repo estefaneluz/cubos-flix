@@ -27,7 +27,7 @@ function ItemBag({filme, addFilmesSacola}){
     )
 }
 
-function Bag({filmes, addFilmesSacola}){
+function Bag({filmes, addFilmesSacola, total}){
     return(
         <div className="bag-container">
             <div className="bag-title">
@@ -50,7 +50,7 @@ function Bag({filmes, addFilmesSacola}){
                 {filmes.length > 0 &&
                     <>
                         {filmes.map(filme => (<ItemBag filme={filme} addFilmesSacola={addFilmesSacola}/>))}
-                        <button className="btn btn-rosa">Confirme os seus dados <span>R$ 04,98</span></button>
+                        <button className="btn btn-rosa">Confirme os seus dados <span>R$ {total}</span></button>
                     </>
                 }
             </div>
