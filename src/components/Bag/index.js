@@ -2,13 +2,13 @@ import '../../App.css'
 import './style.css'
 import personIllustration from '../../assets/images/person-illustration.svg'
 
-function MovieBag(){
+function ItemBag(){
     return(
-        <div className="movie-bag-container">
-            <img></img>
-            <p>Joker</p>
+        <div className="item-container">
+            <img src="https://image.tmdb.org/t/p/original/ljPHd7WiPVKmuXi1hgQUpZQslbC.jpg"/>
+            <p className="item-title">Joker</p>
             <p>R$ 2,49</p>
-            <div>
+            <div className="item-button">
                 <button>+</button>
                 1
                 <button>-</button>
@@ -30,9 +30,10 @@ function Bag(){
                 <h2>Sacola</h2>
             </div>
             <div className="bag-content">
-                <h2>Sua sacola está vazia</h2>
+                {/* <h2>Sua sacola está vazia</h2>
                 <p>Adicione filmes agora</p>
-                <img src={personIllustration} alt="Ilustração de uma pessoa se enconstado em um celular com o logo da Cubos Flix" />
+                <img src={personIllustration} alt="Ilustração de uma pessoa se enconstado em um celular com o logo da Cubos Flix" /> */}
+                <ItemBag/>
                 <button className="btn btn-rosa">Confirme os seus dados <span>R$ 04,98</span></button>
             </div>
         </div>
