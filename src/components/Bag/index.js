@@ -1,6 +1,8 @@
 import '../../App.css'
 import './style.css'
 import personIllustration from '../../assets/images/person-illustration.svg'
+import plusIcon from '../../assets/images/plus-icon.svg'
+import minusIcon from '../../assets/images/minus-icon.svg'
 
 function ItemBag(){
     return(
@@ -9,9 +11,9 @@ function ItemBag(){
             <p className="item-title">Joker</p>
             <p>R$ 2,49</p>
             <div className="item-button">
-                <button className="item-btn add">+</button>
+                <button className="item-btn add"><img src={plusIcon}/></button>
                 1
-                <button className="item-btn minus">-</button>
+                <button className="item-btn minus"><img src={minusIcon}/></button>
             </div>
         </div>
     )
