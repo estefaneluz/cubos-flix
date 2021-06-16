@@ -4,23 +4,22 @@ import personIllustration from '../../assets/images/person-illustration.svg'
 import plusIcon from '../../assets/images/plus-icon.svg'
 import minusIcon from '../../assets/images/minus-icon.svg'
 
-function ItemBag(){
+function ItemBag({filme, addFilmesSacola}){
     return(
         <div className="item-container">
-            <img src="https://image.tmdb.org/t/p/original/ljPHd7WiPVKmuXi1hgQUpZQslbC.jpg" alt="Poster do filme"/>
-            <p className="item-title">Aqueles Que Me Desejam a Morte
-</p>
-            <p>R$ 2,49</p>
+            <img src={filme.poster_path}/>
+            <p className="item-title">{filme.title}</p>
+            <p>R$ {filme.price}</p>
             <div className="item-button">
-                <button className="item-btn add"><img src={plusIcon} alt="Icone de adição na sacola"/></button>
-                1
-                <button className="item-btn minus"><img src={minusIcon} alt="Icone de subtração na sacola"/></button>
+                <button className="item-btn add" onClick={() => addFilmesSacola(1, filme.id)}><img src={plusIcon} alt="Icone de adição na sacola"/></button>
+                {filme.qtd_bag}
+                <button className="item-btn minus" onClick={() => addFilmesSacola(-1, filme.id)}><img src={minusIcon} alt="Icone de subtração na sacola"/></button>
             </div>
         </div>
     )
 }
 
-function Bag(){
+function Bag({filmes, addFilmesSacola}){
     return(
         <div className="bag-container">
             <div className="bag-title">
@@ -33,11 +32,19 @@ function Bag(){
                 <h2>Sacola</h2>
             </div>
             <div className="bag-content">
-                {/* <h2>Sua sacola está vazia</h2>
-                <p>Adicione filmes agora</p>
-                <img src={personIllustration} alt="Ilustração de uma pessoa se enconstado em um celular com o logo da Cubos Flix" /> */}
-                <ItemBag/>
-                <button className="btn btn-rosa">Confirme os seus dados <span>R$ 04,98</span></button>
+                {filmes.length === 0 && 
+                    <>
+                        <h2>Sua sacola está vazia</h2>
+                        <p>Adicione filmes agora</p>
+                        <img src={personIllustration} alt="Ilustração de uma pessoa se enconstado em um celular com o logo da Cubos Flix" /> 
+                    </>
+                }
+                {filmes.length > 0 &&
+                    <>
+                        {filmes.map(filme => (<ItemBag filme={filme} addFilmesSacola={addFilmesSacola}/>))}
+                        <button className="btn btn-rosa">Confirme os seus dados <span>R$ 04,98</span></button>
+                    </>
+                }
             </div>
         </div>
     )

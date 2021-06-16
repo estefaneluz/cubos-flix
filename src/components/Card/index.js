@@ -30,7 +30,7 @@ function Card({ filmes, addFilmesSacola }) {
               {filme.vote_average}
             </div>
           </div>
-          <button className="btn btn-roxo" onClick={() => addFilmesSacola(filme.id)}>
+          <button className="btn btn-roxo" onClick={() => addFilmesSacola(1, filme.id)}>
             Sacola <span>R$ {filme.price}</span>
           </button>
         </div>

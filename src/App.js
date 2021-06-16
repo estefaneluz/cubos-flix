@@ -37,19 +37,20 @@ function App() {
     setFilmes(filmesFormatados);
   }
 
-  async function addFilmesSacola(id){
+  async function addFilmesSacola(value, id){
     
     const localFilmes = [...filmes]
     const localSacola = [...sacola]
-    const indexFilme = localFilmes.findIndex(filme => filme.id === id);
+    const indexFilme = localFilmes.findIndex(filme => filme.id === id)
+    const indexSacola = localSacola.findIndex(filme => filme.id === id)
+
     if(indexFilme===-1) return;
     
-    const qtdSacolaFilme = localFilmes[indexFilme].qtd_bag + 1;
+    const qtdSacolaFilme = localFilmes[indexFilme].qtd_bag + value;
 
-    if(qtdSacolaFilme===1) localSacola.push(localFilmes[indexFilme])
-    if(qtdSacolaFilme>=0) {
-      localFilmes[indexFilme].qtd_bag = qtdSacolaFilme;
-    }
+    if(indexSacola===-1) localSacola.push(localFilmes[indexFilme])
+    if(qtdSacolaFilme===0) localSacola.splice(indexSacola, 1)
+    if(qtdSacolaFilme>=0) localFilmes[indexFilme].qtd_bag = qtdSacolaFilme
 
     setFilmes([...localFilmes])
     setSacola([...localSacola])
@@ -67,7 +68,7 @@ function App() {
           </div>
         </div>
 
-        <Bag/>
+        <Bag filmes={sacola} addFilmesSacola={addFilmesSacola}/>
       </div>
     </div>
   )
