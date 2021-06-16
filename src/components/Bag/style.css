@@ -1,9 +1,11 @@
 .bag-container{
     flex-basis: 50%;
-    margin: 25px 0 25px 2%;
+    margin: 2% 0 3% 3%;
     text-align: center;
     position: fixed;
     right: 3vw;
+    max-height: 75vh;
+    overflow-y: auto;
 }
 
 .bag-title {
@@ -22,6 +24,7 @@
     background-color: rgb(0, 0, 0, 0.2);
     display: grid;
     place-content: center;
+    row-gap: 10px;
 }
 
 .btn-rosa {
@@ -40,16 +43,16 @@
     display: grid;
     width:inherit;
     height: 88px;
-    padding: 10px 0;
-    gap: 10px;
     text-align: left;
     grid-template-columns: max-content 1fr max-content;
+    column-gap: 10px;
 }
 
 .item-container img{
     width: 43px;
     height: 67px;
     grid-row: 1/3;
+    align-self: center;
 }
 
 .item-container p{

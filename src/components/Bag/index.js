@@ -3,6 +3,7 @@ import './style.css'
 import personIllustration from '../../assets/images/person-illustration.svg'
 import plusIcon from '../../assets/images/plus-icon.svg'
 import minusIcon from '../../assets/images/minus-icon.svg'
+import trashIcon from '../../assets/images/trash-icon.svg'
 
 function ItemBag({filme, addFilmesSacola}){
     return(
@@ -13,7 +14,14 @@ function ItemBag({filme, addFilmesSacola}){
             <div className="item-button">
                 <button className="item-btn add" onClick={() => addFilmesSacola(1, filme.id)}><img src={plusIcon} alt="Icone de adição na sacola"/></button>
                 {filme.qtd_bag}
-                <button className="item-btn minus" onClick={() => addFilmesSacola(-1, filme.id)}><img src={minusIcon} alt="Icone de subtração na sacola"/></button>
+                <button className="item-btn minus" onClick={() => addFilmesSacola(-1, filme.id)}>
+                    {filme.qtd_bag === 1 &&
+                        <img src={trashIcon} alt="Icone de remover item da sacola"/>
+                    }
+                    {filme.qtd_bag>1 &&
+                        <img src={minusIcon} alt="Icone de subtração na sacola"/>
+                    }
+                </button>
             </div>
         </div>
     )
