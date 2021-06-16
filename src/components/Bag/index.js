@@ -9,9 +9,9 @@ function ItemBag(){
             <p className="item-title">Joker</p>
             <p>R$ 2,49</p>
             <div className="item-button">
-                <button>+</button>
+                <button className="item-btn add">+</button>
                 1
-                <button>-</button>
+                <button className="item-btn minus">-</button>
             </div>
         </div>
     )
