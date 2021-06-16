@@ -29,3 +29,7 @@
     background-color: #E25EBF;
     font-size: 0.9em;
 }
+
+.btn-rosa:hover {
+    background: linear-gradient(0deg, rgba(225, 123, 123, 0.45), rgba(225, 123, 123, 0.45)), #FFB6EB;
+}
