@@ -8,14 +8,16 @@ import { useState, useEffect } from 'react'
 function App() {
   const [filmes, setFilmes] = useState([])
   const [sacola, setSacola] = useState([])
-  const [ranking, setRanking] = useState([...filmes])
+  const [ranking, setRanking] = useState([])
+  const [pesquisa, setPesquisa] = useState('')
+  const [verRanking, setVerRanking] = useState(true)
   const [total, setTotal] = useState(0)
 
   useEffect(()=>{
     popularFilmes();
   }, [])
 
-  function sortFilmesVoteAverage(a, b){
+  async function sortFilmesVoteAverage(a, b){
     return b.vote_average - a.vote_average;
   }
 
@@ -41,7 +43,7 @@ function App() {
     }
 
     setFilmes(filmesFormatados);
-    let localRanking = [...filmes].sort(sortFilmesVoteAverage);
+    let localRanking = await [...filmesFormatados].sort(sortFilmesVoteAverage);
     localRanking = localRanking.splice(0,5);
     setRanking(localRanking);
   }
@@ -68,19 +70,36 @@ function App() {
     setTotal(localTotal)
   }
 
+  async function pesquisarFilmes(event){
+    event.preventDefault()
+    if(!pesquisa) {
+      setVerRanking(true)
+      popularFilmes();
+      return;
+    }
+    const localFilmes = [...filmes];
+    const resultado = localFilmes.filter(filme => filme.title.toLowerCase().includes(pesquisa.toLowerCase()))
+    setFilmes(resultado)
+    setVerRanking(false)
+  }
+
   return (
     <div className="app">
-      <Nav />
+      <Nav pesquisarFilmes={pesquisarFilmes} pesquisa={pesquisa} setPesquisa={setPesquisa}/>
       <div className="container">
         <div>
+          {verRanking &&
+          <>
           <h2>Top Filmes</h2>
           <div className="container-filmes">
             <Card filmes={ranking} addFilmesSacola={addFilmesSacola}/>
           </div>
+          </>
+          }
 
           <h2>Filmes</h2>
           <div className="container-filmes">
-            <Card filmes={filmes} addFilmesSacola={addFilmesSacola}/>
+            <Card filmes={filmes} addFilmesSacola={addFilmesSacola} />
           </div>
         </div>
 

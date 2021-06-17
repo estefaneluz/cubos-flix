@@ -2,7 +2,7 @@ import './style.css'
 import '../../App.css'
 import userImg from '../../assets/images/user-icon.jpg'
 
-function Nav() {
+function Nav({pesquisarFilmes, pesquisa, setPesquisa}) {
   return (
     <nav>
       <svg
@@ -22,13 +22,15 @@ function Nav() {
           fill="#F089D3"
         />
       </svg>
-      <div className="search-container">
-        <input
-          type="search"
-          className="nav-search"
-          placeholder="Pesquise filmes..."
-        />
-        <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <form onSubmit={pesquisarFilmes} className="search-container">
+          <input
+            type="text"
+            className="nav-search"
+            placeholder="Pesquise filmes..."
+            value={pesquisa}
+            onChange={event => setPesquisa(event.target.value)}
+          />
+        <svg onClick={pesquisarFilmes} viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle
             cx="6.84448"
             cy="6.84448"
@@ -47,7 +49,7 @@ function Nav() {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
+      </form>
       <div className="user-info">
         Bem vinda, Stef!
         <img src={userImg} alt="Imagem do usuário" />
