@@ -90,10 +90,10 @@ function App() {
         <div>
           {verRanking &&
           <>
-          <h2>Top Filmes</h2>
-          <div className="container-filmes">
-            <Card filmes={ranking} addFilmesSacola={addFilmesSacola}/>
-          </div>
+            <h2>Top Filmes</h2>
+            <div className="container-filmes">
+              <Card filmes={ranking} addFilmesSacola={addFilmesSacola}/>
+            </div>
           </>
           }
 
