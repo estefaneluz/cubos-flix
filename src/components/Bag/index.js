@@ -8,7 +8,7 @@ import trashIcon from '../../assets/images/trash-icon.svg'
 function ItemBag({filme, addFilmesSacola}){
     return(
         <div className="item-container">
-            <img src={filme.poster_path}/>
+            <img src={filme.poster_path} alt={`Poster do filme ${filme.title}`}/>
             <p className="item-title">{filme.title}</p>
             <p>R$ {filme.price}</p>
             <div className="item-button">
@@ -49,7 +49,7 @@ function Bag({filmes, addFilmesSacola, total}){
                 }
                 {filmes.length > 0 &&
                     <>
-                        {filmes.map(filme => (<ItemBag filme={filme} addFilmesSacola={addFilmesSacola}/>))}
+                        {filmes.map(filme => (<ItemBag key={filme.id} filme={filme} addFilmesSacola={addFilmesSacola}/>))}
                         <button className="btn btn-rosa">Confirme os seus dados <span>R$ {total}</span></button>
                     </>
                 }

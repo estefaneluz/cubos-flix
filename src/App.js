@@ -8,11 +8,16 @@ import { useState, useEffect } from 'react'
 function App() {
   const [filmes, setFilmes] = useState([])
   const [sacola, setSacola] = useState([])
+  const [ranking, setRanking] = useState([...filmes])
   const [total, setTotal] = useState(0)
 
   useEffect(()=>{
     popularFilmes();
   }, [])
+
+  function sortFilmesVoteAverage(a, b){
+    return b.vote_average - a.vote_average;
+  }
 
   async function popularFilmes(){
     const response = await fetch('https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?language=pt-BR', 
@@ -36,6 +41,9 @@ function App() {
     }
 
     setFilmes(filmesFormatados);
+    let localRanking = [...filmes].sort(sortFilmesVoteAverage);
+    localRanking = localRanking.splice(0,5);
+    setRanking(localRanking);
   }
 
   async function addFilmesSacola(value, id){
@@ -60,12 +68,16 @@ function App() {
     setTotal(localTotal)
   }
 
-
   return (
     <div className="app">
       <Nav />
       <div className="container">
         <div>
+          <h2>Top Filmes</h2>
+          <div className="container-filmes">
+            <Card filmes={ranking} addFilmesSacola={addFilmesSacola}/>
+          </div>
+
           <h2>Filmes</h2>
           <div className="container-filmes">
             <Card filmes={filmes} addFilmesSacola={addFilmesSacola}/>
