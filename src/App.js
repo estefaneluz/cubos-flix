@@ -1,9 +1,9 @@
 import Card from './components/Card'
 import Nav from './components/Nav'
 import Bag from './components/Bag'
-
-import './App.css'
 import { useState, useEffect } from 'react'
+import { pesquisarFilmes, sortFilmesVoteAverage } from './utils/utils'
+import './App.css'
 
 function App() {
   const [filmes, setFilmes] = useState([])
@@ -19,45 +19,21 @@ function App() {
     popularFilmes();
   }, [])
 
-  async function sortFilmesVoteAverage(a, b){
-    return b.vote_average - a.vote_average;
-  }
-
   async function popularFilmes(){
-    const response = await fetch('https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?language=pt-BR', 
-    {
-      method: 'GET',
-    })
-
-    const {results} = await response.json();
-
-    const filmesFormatados = [];
-
-    for (const filme of results) {
-      filmesFormatados.push({
-        id: filme.id,
-        title: filme.title,
-        poster_path: filme.poster_path,
-        vote_average: filme.vote_average,
-        price: filme.price,
-        qtd_bag: 0
-      });
-    }
-
+    const filmesFormatados = await pesquisarFilmes();
     setFilmes(filmesFormatados);
-    let localRanking = await [...filmesFormatados].sort(sortFilmesVoteAverage);
+
+    let localRanking = [...filmesFormatados].sort(sortFilmesVoteAverage);
     localRanking = localRanking.splice(0,5);
     setRanking(localRanking);
   }
 
   async function addFilmesSacola(value, id){
-    
+    //qtd_bag só na sacola
     const localFilmes = [...filmes]
     const localSacola = [...sacola]
     const indexFilme = localFilmes.findIndex(filme => filme.id === id)
     const indexSacola = localSacola.findIndex(filme => filme.id === id)
-
-    if(indexFilme===-1) return;
     
     const qtdSacolaFilme = localFilmes[indexFilme].qtd_bag + value;
     let localTotal = total + (value * localFilmes[indexFilme].price);
@@ -72,18 +48,18 @@ function App() {
     setTotal(localTotal)
   }
 
-  async function pesquisarFilmes(event){
+  async function filtrarFilmes(event){
     event.preventDefault()
-    await popularFilmes();
+    const filmesFormatados = await pesquisarFilmes()
     
     if(!pesquisa) {
       setVerRanking(true)
+      setFilmes(filmesFormatados)
       return;
     }
     setCarregando(true)
     try {
-      const localFilmes = [...filmes];
-      const resultado = localFilmes.filter(filme => filme.title.toLowerCase().includes(pesquisa.toLowerCase()))
+      const resultado = filmesFormatados.filter(filme => filme.title.toLowerCase().includes(pesquisa.toLowerCase()))
       setFilmes(resultado)
       setVerRanking(false)
     } catch{
@@ -96,7 +72,7 @@ function App() {
 
   return (
     <div className="app">
-      <Nav pesquisarFilmes={pesquisarFilmes} pesquisa={pesquisa} setPesquisa={setPesquisa}/>
+      <Nav pesquisarFilmes={filtrarFilmes} pesquisa={pesquisa} setPesquisa={setPesquisa}/>
       <div className="container">
         <div>
           {verRanking &&
