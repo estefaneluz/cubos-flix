@@ -10,6 +10,8 @@ function App() {
   const [sacola, setSacola] = useState([])
   const [ranking, setRanking] = useState([])
   const [pesquisa, setPesquisa] = useState('')
+  const [carregando, setCarregando] = useState(false)
+  const [error, setError] = useState('')
   const [verRanking, setVerRanking] = useState(true)
   const [total, setTotal] = useState(0)
 
@@ -72,15 +74,24 @@ function App() {
 
   async function pesquisarFilmes(event){
     event.preventDefault()
+    await popularFilmes();
+    
     if(!pesquisa) {
       setVerRanking(true)
-      popularFilmes();
       return;
     }
-    const localFilmes = [...filmes];
-    const resultado = localFilmes.filter(filme => filme.title.toLowerCase().includes(pesquisa.toLowerCase()))
-    setFilmes(resultado)
-    setVerRanking(false)
+    setCarregando(true)
+    try {
+      const localFilmes = [...filmes];
+      const resultado = localFilmes.filter(filme => filme.title.toLowerCase().includes(pesquisa.toLowerCase()))
+      setFilmes(resultado)
+      setVerRanking(false)
+    } catch{
+      setError(error.message);
+      popularFilmes();
+    }
+    console.log(pesquisa)
+    setCarregando(false)
   }
 
   return (
@@ -98,6 +109,8 @@ function App() {
           }
 
           <h2>Filmes</h2>
+          {carregando && <p className="loading">Carregando...</p>}
+          {error && <p className="error">{error}</p>}
           <div className="container-filmes">
             <Card filmes={filmes} addFilmesSacola={addFilmesSacola} />
           </div>
