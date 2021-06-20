@@ -37,6 +37,21 @@ h2 {
   column-gap: 5px;
 }
 
+.error{
+  color: #000;
+  margin: 10vh 0;
+  border: 1px solid #F78B8B;
+  background-color:#FFE9E9;
+  border-radius: 2px;
+  padding: 10px;
+  width: 80%;
+}
+
+.error span {
+  color: #F78B8B;
+  font-weight: 600;
+}
+
 /* Carregando com animação 
   https://dev.to/afif/i-made-100-more-css-loaders-for-your-next-project-4ioa 
   só ajustei pro projeto */

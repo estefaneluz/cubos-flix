@@ -98,19 +98,19 @@ function App() {
     <div className="app">
       <Nav pesquisarFilmes={filtrarFilmes} pesquisa={pesquisa} setPesquisa={setPesquisa}/>
       <div className="container">
+        {erro && <p className="error"><span>Error:</span> {erro}</p>}
         {carregando && <p className="loading"/>}
-        {!carregando &&
+        {(!carregando && !erro) &&
           <div>
-              {verRanking &&
-              <>
-                <h2>Top Filmes</h2>
-                <div className="container-filmes">
-                  <Card filmes={ranking} addFilmesSacola={addFilmesSacola}/>
-                </div>
-              </>
-              }
+            {verRanking &&
+            <>
+              <h2>Top Filmes</h2>
+              <div className="container-filmes">
+                <Card filmes={ranking} addFilmesSacola={addFilmesSacola}/>
+              </div>
+            </>
+            }
 
-            {erro && <p className="error">{erro}</p>}
             <h2>Filmes</h2>
             <div className="container-filmes">
               <Card filmes={filmes} addFilmesSacola={addFilmesSacola} />
