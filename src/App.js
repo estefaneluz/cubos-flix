@@ -9,7 +9,7 @@ function App() {
   const [sacola, setSacola] = useState([])
   const [ranking, setRanking] = useState([])
   const [pesquisa, setPesquisa] = useState('')
-  const [carregando, setCarregando] = useState(false)
+  const [carregando, setCarregando] = useState(true)
   const [erro, setErro] = useState('')
   const [verRanking, setVerRanking] = useState(true)
   const [total, setTotal] = useState(0)
@@ -39,7 +39,7 @@ function App() {
             qtd_bag: 0
         });
       }
-      setCarregando(false)  
+      setCarregando(false) 
       return filmesFormatados
     } catch {
       setCarregando(false)
@@ -98,24 +98,25 @@ function App() {
     <div className="app">
       <Nav pesquisarFilmes={filtrarFilmes} pesquisa={pesquisa} setPesquisa={setPesquisa}/>
       <div className="container">
-        <div>
-          {verRanking &&
-          <>
-            <h2>Top Filmes</h2>
+        {carregando && <p className="loading"/>}
+        {!carregando &&
+          <div>
+              {verRanking &&
+              <>
+                <h2>Top Filmes</h2>
+                <div className="container-filmes">
+                  <Card filmes={ranking} addFilmesSacola={addFilmesSacola}/>
+                </div>
+              </>
+              }
+
+            {erro && <p className="error">{erro}</p>}
+            <h2>Filmes</h2>
             <div className="container-filmes">
-              <Card filmes={ranking} addFilmesSacola={addFilmesSacola}/>
+              <Card filmes={filmes} addFilmesSacola={addFilmesSacola} />
             </div>
-          </>
-          }
-
-          <h2>Filmes</h2>
-          {carregando && <p className="loading">Carregando...</p>}
-          {erro && <p className="error">{erro}</p>}
-          <div className="container-filmes">
-            <Card filmes={filmes} addFilmesSacola={addFilmesSacola} />
           </div>
-        </div>
-
+        }
         <Bag filmes={sacola} addFilmesSacola={addFilmesSacola} total={total}/>
       </div>
     </div>
