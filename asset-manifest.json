@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/cubos-flix/static/css/main.f24a85df.chunk.css",
-    "main.js": "/cubos-flix/static/js/main.218b77b9.chunk.js",
-    "main.js.map": "/cubos-flix/static/js/main.218b77b9.chunk.js.map",
+    "main.css": "/cubos-flix/static/css/main.82f3b028.chunk.css",
+    "main.js": "/cubos-flix/static/js/main.19ce9b36.chunk.js",
+    "main.js.map": "/cubos-flix/static/js/main.19ce9b36.chunk.js.map",
     "runtime-main.js": "/cubos-flix/static/js/runtime-main.66705c19.js",
     "runtime-main.js.map": "/cubos-flix/static/js/runtime-main.66705c19.js.map",
     "static/js/2.6a8e20c2.chunk.js": "/cubos-flix/static/js/2.6a8e20c2.chunk.js",
     "static/js/2.6a8e20c2.chunk.js.map": "/cubos-flix/static/js/2.6a8e20c2.chunk.js.map",
     "index.html": "/cubos-flix/index.html",
-    "static/css/main.f24a85df.chunk.css.map": "/cubos-flix/static/css/main.f24a85df.chunk.css.map",
+    "static/css/main.82f3b028.chunk.css.map": "/cubos-flix/static/css/main.82f3b028.chunk.css.map",
     "static/js/2.6a8e20c2.chunk.js.LICENSE.txt": "/cubos-flix/static/js/2.6a8e20c2.chunk.js.LICENSE.txt",
     "static/media/minus-icon.6a22578b.svg": "/cubos-flix/static/media/minus-icon.6a22578b.svg",
     "static/media/person-illustration.624d0311.svg": "/cubos-flix/static/media/person-illustration.624d0311.svg",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.66705c19.js",
     "static/js/2.6a8e20c2.chunk.js",
-    "static/css/main.f24a85df.chunk.css",
-    "static/js/main.218b77b9.chunk.js"
+    "static/css/main.82f3b028.chunk.css",
+    "static/js/main.19ce9b36.chunk.js"
   ]
 }
