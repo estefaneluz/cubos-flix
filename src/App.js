@@ -36,7 +36,6 @@ function App() {
             poster_path: filme.poster_path,
             vote_average: filme.vote_average,
             price: filme.price,
-            qtd_bag: 0
         });
       }
       setCarregando(false) 
@@ -60,21 +59,24 @@ function App() {
   }
 
   async function addFilmesSacola(value, id){
-    //qtd_bag só na sacola
-    const localFilmes = [...filmes]
     const localSacola = [...sacola]
-    const indexFilme = localFilmes.findIndex(filme => filme.id === id)
-    const indexSacola = localSacola.findIndex(filme => filme.id === id)
-    
-    const qtdSacolaFilme = localFilmes[indexFilme].qtd_bag + value;
-    let localTotal = total + (value * localFilmes[indexFilme].price);
+    const indexFilme = filmes.findIndex(filme => filme.id === id)
+    let indexSacola = localSacola.findIndex(filme => filme.id === id)
+
+    if(indexSacola===-1) {
+      localSacola.push({
+      ...filmes[indexFilme],
+      qtd_bag: 0
+      })
+      indexSacola = localSacola.length - 1;
+    }
+
+    let localTotal = total + (value * localSacola[indexSacola].price);
     if(localTotal<0) localTotal = 0;
 
-    if(indexSacola===-1) localSacola.push(localFilmes[indexFilme])
-    if(qtdSacolaFilme===0) localSacola.splice(indexSacola, 1)
-    if(qtdSacolaFilme>=0) localFilmes[indexFilme].qtd_bag = qtdSacolaFilme
+    localSacola[indexSacola].qtd_bag += value;
+    if(localSacola[indexSacola].qtd_bag === 0) localSacola.splice(indexSacola, 1)
 
-    setFilmes([...localFilmes])
     setSacola([...localSacola])
     setTotal(localTotal)
   }
