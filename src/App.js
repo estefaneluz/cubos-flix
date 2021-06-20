@@ -71,8 +71,7 @@ function App() {
       indexSacola = localSacola.length - 1;
     }
 
-    let localTotal = total + (value * localSacola[indexSacola].price);
-    if(localTotal<0) localTotal = 0;
+    const localTotal = total + (value * localSacola[indexSacola].price);
 
     localSacola[indexSacola].qtd_bag += value;
     if(localSacola[indexSacola].qtd_bag === 0) localSacola.splice(indexSacola, 1)
