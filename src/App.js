@@ -8,11 +8,11 @@ function App() {
   const [filmes, setFilmes] = useState([])
   const [sacola, setSacola] = useState([])
   const [ranking, setRanking] = useState([])
-  const [pesquisa, setPesquisa] = useState('')
-  const [carregando, setCarregando] = useState(true)
-  const [erro, setErro] = useState('')
-  const [verRanking, setVerRanking] = useState(true)
   const [total, setTotal] = useState(0)
+  const [pesquisa, setPesquisa] = useState('')
+  const [erro, setErro] = useState('')
+  const [carregando, setCarregando] = useState(true)
+  const [verRanking, setVerRanking] = useState(true)
 
   useEffect(()=>{
     popularFilmes();

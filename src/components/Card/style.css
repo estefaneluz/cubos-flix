@@ -43,3 +43,7 @@
     ),
     #a785ed;
 }
+
+.btn-roxo:active {
+  background: linear-gradient(0deg, rgba(123, 123, 123, 0.45), rgba(123, 123, 123, 0.45)), #A785ED;
+}

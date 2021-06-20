@@ -38,6 +38,10 @@
     background: linear-gradient(0deg, rgba(225, 123, 123, 0.45), rgba(225, 123, 123, 0.45)), #FFB6EB;
 }
 
+.btn-rosa:active{
+    box-shadow: 0px 16px 24px -15px rgba(226, 94, 191, 0.5);
+}
+
 /*MOVIE BAG */
 
 .item-container{
@@ -84,6 +88,14 @@
     cursor: pointer;
     display: grid;
     place-content: center;
+}
+
+.item-btn:hover {
+    background: linear-gradient(0deg, rgba(107, 107, 107, 0.37), rgba(107, 107, 107, 0.37));
+}
+
+.item-btn:active {
+    background: linear-gradient(0deg, rgba(191, 191, 191, 0.37), rgba(191, 191, 191, 0.37));
 }
 
 .item-btn img{
