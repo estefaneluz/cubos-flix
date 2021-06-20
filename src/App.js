@@ -2,7 +2,6 @@ import Card from './components/Card'
 import Nav from './components/Nav'
 import Bag from './components/Bag'
 import { useState, useEffect } from 'react'
-import { pesquisarFilmes, sortFilmesVoteAverage } from './utils/utils'
 import './App.css'
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
   const [ranking, setRanking] = useState([])
   const [pesquisa, setPesquisa] = useState('')
   const [carregando, setCarregando] = useState(false)
-  const [error, setError] = useState('')
+  const [erro, setErro] = useState('')
   const [verRanking, setVerRanking] = useState(true)
   const [total, setTotal] = useState(0)
 
@@ -19,11 +18,43 @@ function App() {
     popularFilmes();
   }, [])
 
+  async function pesquisarFilmes(){
+    setCarregando(true)
+    try {
+      const response = await fetch('https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?language=pt-BR', 
+      {
+        method: 'GET',
+      })
+
+      const {results} = await response.json();
+      const filmesFormatados = [];
+
+      for (const filme of results) {
+        filmesFormatados.push({
+            id: filme.id,
+            title: filme.title,
+            poster_path: filme.poster_path,
+            vote_average: filme.vote_average,
+            price: filme.price,
+            qtd_bag: 0
+        });
+      }
+      setCarregando(false)  
+      return filmesFormatados
+    } catch {
+      setCarregando(false)
+      return setErro(erro.message);
+    }
+  }
+
   async function popularFilmes(){
     const filmesFormatados = await pesquisarFilmes();
+    if(erro) return;
     setFilmes(filmesFormatados);
 
-    let localRanking = [...filmesFormatados].sort(sortFilmesVoteAverage);
+    let localRanking = [...filmesFormatados].sort((a,b)=>{
+      return b.vote_average - a.vote_average;
+    });
     localRanking = localRanking.splice(0,5);
     setRanking(localRanking);
   }
@@ -57,17 +88,10 @@ function App() {
       setFilmes(filmesFormatados)
       return;
     }
-    setCarregando(true)
-    try {
-      const resultado = filmesFormatados.filter(filme => filme.title.toLowerCase().includes(pesquisa.toLowerCase()))
-      setFilmes(resultado)
-      setVerRanking(false)
-    } catch{
-      setError(error.message);
-      popularFilmes();
-    }
-    console.log(pesquisa)
-    setCarregando(false)
+
+    const resultado = filmesFormatados.filter(filme => filme.title.toLowerCase().includes(pesquisa.toLowerCase()))
+    setFilmes(resultado)
+    setVerRanking(false)
   }
 
   return (
@@ -86,7 +110,7 @@ function App() {
 
           <h2>Filmes</h2>
           {carregando && <p className="loading">Carregando...</p>}
-          {error && <p className="error">{error}</p>}
+          {erro && <p className="error">{erro}</p>}
           <div className="container-filmes">
             <Card filmes={filmes} addFilmesSacola={addFilmesSacola} />
           </div>
