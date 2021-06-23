@@ -12,7 +12,8 @@ function App() {
   const [pesquisa, setPesquisa] = useState('')
   const [erro, setErro] = useState('')
   const [carregando, setCarregando] = useState(true)
-  const [verRanking, setVerRanking] = useState(true)
+  const [verRanking, setVerRanking] = useState(true) //não quero o top ranking quando pesquiso
+  const [showSacola, setShowSacola] = useState(false) //para o responsivo 
 
   useEffect(()=>{
     popularFilmes();
@@ -118,7 +119,7 @@ function App() {
             </div>
           </div>
         }
-        <Bag filmes={sacola} addFilmesSacola={addFilmesSacola} total={total}/>
+        <Bag filmes={sacola} addFilmesSacola={addFilmesSacola} total={total} setShowSacola={setShowSacola} showSacola={showSacola}/>
       </div>
     </div>
   )

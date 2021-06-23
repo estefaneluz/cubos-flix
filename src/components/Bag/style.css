@@ -67,7 +67,10 @@
         width: max-content;
         height: 385px;
         overflow-x: auto;
-        background-color: rgb(0, 0, 0)
+        background-color: rgba(0, 0, 0, 0.712)
+    }
+    .bag-content.show{
+        display: block;
     }
     .btn-rosa {
         margin: 20px auto 0 auto;
