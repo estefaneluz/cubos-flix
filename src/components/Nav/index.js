@@ -1,5 +1,4 @@
 import './style.css'
-import '../../App.css'
 import userImg from '../../assets/images/user-icon.jpg'
 
 function Nav({pesquisarFilmes, pesquisa, setPesquisa}) {

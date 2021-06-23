@@ -1,4 +1,3 @@
-import '../../App.css'
 import './style.css'
 import personIllustration from '../../assets/images/person-illustration.svg'
 import ItemBag from '../ItemBag'

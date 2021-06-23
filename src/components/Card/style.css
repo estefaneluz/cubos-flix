@@ -28,6 +28,15 @@
   color: #fbcd6e;
 }
 
+.btn {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  column-gap: 5px;
+}
+
 .btn-roxo{
   background-color: #a785ed;
   color: #eee5ff;
