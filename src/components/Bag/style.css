@@ -42,3 +42,34 @@
     box-shadow: 0px 16px 24px -15px rgba(226, 94, 191, 0.5);
 }
 
+@media (max-width: 1340px) {
+    .bag-container{
+        display: flex;
+        align-items: flex-start;
+        right: 0;
+        overflow-y:unset;
+        overflow-x: unset;
+        width: auto;
+    }
+    .bag-title {
+        min-height: 385px;
+        height: auto;
+        padding: 15px 0;
+        width: 70px;
+        flex-direction: column;
+    }
+    .bag-title h2{
+        writing-mode: vertical-rl;
+        margin: 10px 0;
+    }
+    .bag-content{
+        display: none;
+        width: max-content;
+        height: 385px;
+        overflow-x: auto;
+        background-color: rgb(0, 0, 0)
+    }
+    .btn-rosa {
+        margin: 20px auto 0 auto;
+    }
+}
