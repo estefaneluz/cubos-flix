@@ -1,7 +1,7 @@
-import './style.css'
-import userImg from '../../assets/images/user-icon.jpg'
+import "./style.css";
+import userImg from "../../assets/images/user-icon.jpg";
 
-function Nav({pesquisarFilmes, pesquisa, setPesquisa}) {
+function Nav({ pesquisarFilmes, pesquisa, setPesquisa }) {
   return (
     <nav>
       <svg
@@ -22,14 +22,19 @@ function Nav({pesquisarFilmes, pesquisa, setPesquisa}) {
         />
       </svg>
       <form onSubmit={pesquisarFilmes} className="search-container">
-          <input
-            type="text"
-            className="nav-search"
-            placeholder="Pesquise filmes..."
-            value={pesquisa}
-            onChange={event => setPesquisa(event.target.value)}
-          />
-        <svg onClick={pesquisarFilmes} viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <input
+          type="text"
+          className="nav-search"
+          placeholder="Pesquise filmes..."
+          value={pesquisa}
+          onChange={(event) => setPesquisa(event.target.value)}
+        />
+        <svg
+          onClick={pesquisarFilmes}
+          viewBox="0 0 14 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <circle
             cx="6.84448"
             cy="6.84448"
@@ -54,7 +59,7 @@ function Nav({pesquisarFilmes, pesquisa, setPesquisa}) {
         <img src={userImg} alt="Imagem do usuário" />
       </div>
     </nav>
-  )
+  );
 }
 
-export default Nav
+export default Nav;

@@ -28,18 +28,18 @@ h2 {
   gap: 24px;
 }
 
-.error{
+.error {
   color: #000;
   margin: 10vh 0;
-  border: 1px solid #F78B8B;
-  background-color:#FFE9E9;
+  border: 1px solid #f78b8b;
+  background-color: #ffe9e9;
   border-radius: 2px;
   padding: 10px;
   width: 80%;
 }
 
 .error span {
-  color: #F78B8B;
+  color: #f78b8b;
   font-weight: 600;
 }
 
@@ -47,27 +47,30 @@ h2 {
   https://dev.to/afif/i-made-100-more-css-loaders-for-your-next-project-4ioa 
   só ajustei pro projeto */
 
-.loading{
+.loading {
   width: max-content;
   margin: 10vh auto;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 24px;
-  background:radial-gradient(circle closest-side,#A785ED 94%,#0000) right/calc(200% - 1em) 100%;
-  animation:c2 1s infinite alternate linear;
+  background: radial-gradient(circle closest-side, #a785ed 94%, #0000)
+    right/calc(200% - 1em) 100%;
+  animation: c2 1s infinite alternate linear;
 }
 
 .loading::before {
-  content:"Loading...";
+  content: "Loading...";
   line-height: 1em;
-  color:#0000;
-  background:radial-gradient(circle closest-side,#1d2226 94%,#fff);
-  -webkit-background-clip:text;
-  background-clip:text;
-  background-size:inherit;
+  color: #0000;
+  background: radial-gradient(circle closest-side, #1d2226 94%, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: inherit;
   background-position: inherit;
 }
 
-@keyframes c2{
-  100%{background-position: left}
+@keyframes c2 {
+  100% {
+    background-position: left;
+  }
 }

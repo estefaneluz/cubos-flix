@@ -19,7 +19,7 @@
 .card-info h3 {
   font-size: 16px;
   max-width: 100px;
-  white-space:nowrap;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -37,7 +37,7 @@
   column-gap: 5px;
 }
 
-.btn-roxo{
+.btn-roxo {
   background-color: #a785ed;
   color: #eee5ff;
   width: 140px;
@@ -54,5 +54,10 @@
 }
 
 .btn-roxo:active {
-  background: linear-gradient(0deg, rgba(123, 123, 123, 0.45), rgba(123, 123, 123, 0.45)), #A785ED;
+  background: linear-gradient(
+      0deg,
+      rgba(123, 123, 123, 0.45),
+      rgba(123, 123, 123, 0.45)
+    ),
+    #a785ed;
 }
