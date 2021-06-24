@@ -18,3 +18,4 @@
   - Subtrair/Remover filme 
   - Total da compra 
 - Controle do estado das requisições (erros e carregamento)
+- Responsivo 
